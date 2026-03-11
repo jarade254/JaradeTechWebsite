@@ -1,8 +1,31 @@
-/* Navigation Menu */
+/* ===== General Styles ===== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+  color: #333;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 15px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===== Navigation ===== */
 nav {
   background-color: #0a74da;
   padding: 15px 0;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 nav ul {
@@ -10,78 +33,74 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 40px;
+  margin: 0;
+  padding: 0;
 }
 
 nav a {
   color: #fff;
-  text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #ffeb3b;
 }
 
-nav {
-  background-color: #0a74da;
-  padding: 15px 0;
-  text-align: center;
+nav a.active {
+  color: #ffeb3b;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Hero Section */
+/* ===== Hero Section ===== */
 .hero {
   background-color: #f0f2f5;
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px;
 }
 
 .hero h1 {
-  font-size: 2.5em;
+  font-size: 3em;
   margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin-bottom: 30px;
 }
 
 .hero .btn {
   background-color: #0a74da;
   color: #fff;
-  padding: 12px 30px;
-  text-decoration: none;
+  padding: 15px 35px;
   font-weight: bold;
   border-radius: 5px;
+  display: inline-block;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .hero .btn:hover {
   background-color: #095bb5;
+  transform: translateY(-3px);
 }
 
-/* Skills Section */
+/* ===== About Section ===== */
+.about {
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about p {
+  font-size: 1.1em;
+}
+
+/* ===== Skills Section ===== */
 .skills {
   background-color: #f0f2f5;
-  text-align: center;
   padding: 80px 20px;
+  text-align: center;
 }
 
 .skills h2 {
@@ -102,35 +121,40 @@ nav a:hover {
   padding: 15px 25px;
   border-radius: 8px;
   font-weight: bold;
+  min-width: 120px;
+  transition: transform 0.2s;
 }
 
-/* Skills Section */
-.skills {
-  background-color: #f0f2f5;
+.skill:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Projects Section ===== */
+.projects {
   text-align: center;
   padding: 80px 20px;
 }
 
-.skills h2 {
+.projects h2 {
   font-size: 2em;
   margin-bottom: 40px;
 }
 
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.skill {
-  background-color: #0a74da;
-  color: #fff;
-  padding: 15px 25px;
+.project {
+  background: #f0f2f5;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 600px;
   border-radius: 8px;
-  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
 
+.project:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== Contact Section ===== */
 .contact {
   background-color: #f0f2f5;
   padding: 80px 20px;
@@ -142,38 +166,64 @@ nav a:hover {
   margin: 10px 0;
 }
 
-/* Projects Section */
-
-.projects {
-  text-align: center;
-  padding: 60px 20px;
+.contact a {
+  color: #0a74da;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-.project-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+.contact a:hover {
+  color: #095bb5;
 }
 
-.project-card {
-  background: white;
-  padding: 20px;
-  width: 250px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-
+/* ===== Footer ===== */
 footer {
   background: #111;
   color: white;
   text-align: center;
   padding: 30px 20px;
-  margin-top: 50px;
 }
 
 footer p {
   margin: 5px 0;
+}
+
+/* ===== Back to Top Button ===== */
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: #0a74da;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.2s;
+  z-index: 100;
+}
+
+#backToTop:hover {
+  background-color: #095bb5;
+  transform: translateY(-3px);
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .skill-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .project {
+    width: 90%;
+  }
 }

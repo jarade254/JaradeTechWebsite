@@ -9,27 +9,34 @@
 </head>
 
 <body>
+  <!-- Navigation -->
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-  <section class="hero">
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
     <h1>Welcome to JaradeTech</h1>
     <p>Dedicated IT Support Engineer & Linux System Administrator</p>
-    <a href="contact.html" class="btn">Contact Me</a>
+    <a href="#contact" class="btn">Contact Me</a>
   </section>
-  <section class="about">
+
+  <!-- About Section -->
+  <section id="about" class="about">
     <h2>About Me</h2>
     <p>Dedicated IT Support Engineer and Linux System Administrator with strong hands-on experience in Linux server
       configuration, system hardening, networking, and infrastructure troubleshooting. Committed to delivering reliable
       and secure IT solutions.</p>
   </section>
-  <section class="skills">
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
     <h2>My Skills</h2>
     <div class="skill-list">
       <div class="skill">Linux</div>
@@ -40,46 +47,76 @@
       <div class="skill">Web Development</div>
     </div>
   </section>
-  </section>
 
-  <section class="projects">
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
     <h2>My Projects</h2>
-
     <div class="project">
       <h3>Docker Web Server</h3>
       <p>Deployed a web server using Docker containers.</p>
     </div>
-
     <div class="project">
       <h3>Linux Hardening Lab</h3>
       <p>Implemented firewall rules and SSH security.</p>
     </div>
-
     <div class="project">
       <h3>Monitoring Setup</h3>
       <p>Configured monitoring tools for server performance.</p>
     </div>
-
   </section>
-  <section class="contact">
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
     <h2>Contact Me</h2>
-
-    <p>Email: jarade254@gmail.com</p>
-    <p>GitHub: https://github.com/jarade254</p>
-    <p>LinkedIn: www.linkedin.com/in/jarade</p>
-
+    <p>Email: <a href="mailto:jarade254@gmail.com">jarade254@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/jarade254" target="_blank">https://github.com/jarade254</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/jarade" target="_blank">LinkedIn Profile</a></p>
   </section>
+
+  <!-- Footer -->
   <footer>
-
     <h3>JaradeTech</h3>
-
     <p>Linux System Administrator | IT Support Engineer</p>
-
     <p>Email: jarade@example.com</p>
-
     <p>© 2026 JaradeTech. All rights reserved.</p>
-
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop">↑</button>
+
+  <!-- JavaScript -->
+  <script>
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+
+      let current = '';
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 70;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 
 </html>
